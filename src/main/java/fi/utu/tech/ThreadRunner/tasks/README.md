@@ -1,6 +1,7 @@
 ## Package fi.utu.tech.Threadrunner.tasks
 
-Tämän pakkauksen luokat edustavat työssä käytettäviä työjonoja ts. tehtäviä, joita annetaan worker-olioiden suoritettavaksi.
+Tämän pakkauksen luokat edustavat työssä käytettäviä työjonoja ts. tehtäviä, joita annetaan worker-olioiden suoritettavaksi. **Tämän pakkauksen tiedostoihin ei tule/tarvitse koskea tehtävien suorittamiseksi.**
+
  
 
 Countable.java on rajapinta, jonka kaikki task-luokat toteuttavat. WorkerFactory on factory-luokka, 
