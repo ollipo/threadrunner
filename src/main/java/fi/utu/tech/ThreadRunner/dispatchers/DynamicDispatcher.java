@@ -36,13 +36,13 @@ public class DynamicDispatcher implements Dispatcher {
 			String workerType = controlSet.getWorkerType();
 
 			//Jaetaan kokonaistyömäärä säikeiden lukumäärää vastaaviin osiin.
-			int tyomaaraOsa = ilist.size()/(controlSet.getThreadCount()*10);
+			int tyomaaraOsa = ilist.size()/ilist.size();
 			
 			//Tehdään tehtävälista ThreadPoolia varten.
 			int s = 0;
 			ArrayList<ThreadWork> tehtavalista = new ArrayList<ThreadWork>();
-			for (int i=0; i<controlSet.getThreadCount(); i++, s+=tyomaaraOsa) {
-				List<Integer> tyomaara = ilist.subList(s, s+=tyomaaraOsa);
+			for (int i=0; i<ilist.size(); i++) {
+				List<Integer> tyomaara = ilist.subList(i, i+1);
 				
 				ThreadWork alustus = new ThreadWork(tyomaara, workerType);
 				tehtavalista.add(alustus);
