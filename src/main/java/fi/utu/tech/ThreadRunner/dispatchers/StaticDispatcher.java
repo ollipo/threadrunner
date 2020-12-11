@@ -40,7 +40,7 @@ public class StaticDispatcher implements Dispatcher {
 			int s = 0;
 			ArrayList<Thread> saielista = new ArrayList<Thread>();
 			for (int i=0; i<controlSet.getThreadCount(); i++, s+=tyomaaraOsa) {
-				List<Integer> tyomaara = ilist.subList(s, s+=tyomaaraOsa);
+				List<Integer> tyomaara = ilist.subList(s, s+tyomaaraOsa);
 				
 				ThreadWork alustus = new ThreadWork(tyomaara, workerType);
 				Thread säie = new Thread(alustus);
