@@ -39,14 +39,19 @@ public class StaticDispatcher implements Dispatcher {
 			//Asetetaan jaetut työmääräosuudet säikeille.
 			int s = 0;
 			ArrayList<Thread> saielista = new ArrayList<Thread>();
-			for (int i=0; i<controlSet.getThreadCount(); i++, s+=tyomaaraOsa) {
+			for (int i=0; i<controlSet.getThreadCount()-1; i++, s+=tyomaaraOsa) {
 				List<Integer> tyomaara = ilist.subList(s, s+tyomaaraOsa);
 				
 				ThreadWork alustus = new ThreadWork(tyomaara, workerType);
 				Thread säie = new Thread(alustus);
 				saielista.add(säie);
-				 
 			}
+			
+			//Asetetaan ylijäämätehtäville oma säikeensä.
+			List<Integer> tyomaara = ilist.subList(s, ilist.size());
+			ThreadWork alustus = new ThreadWork(tyomaara, workerType);
+			Thread säie = new Thread(alustus);
+			saielista.add(säie);
 			
 			//Käynnistetään säikeet.
 			for (int i=0; i<saielista.size(); i++) {
